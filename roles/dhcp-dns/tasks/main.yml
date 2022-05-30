@@ -1,0 +1,52 @@
+---
+
+- name: Install DHCP and DNS packages
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time={{ aptcachetime }}
+  with_items:
+    - isc-dhcp-server
+    - bind9
+    - bind9utils
+    - dnsutils
+
+#- name: Remove default configuration
+#  file: path={{ item }} state=absent
+#  with_items:
+#    - /etc/dhcpcd.conf
+#    - /etc/dhcp/dhcpd.conf
+#    - /etc/default/isc-dhcp-server
+#    - /etc/network/interfaces
+#    - /etc/resolv.conf
+#    - /etc/bind/named.conf.local
+
+- name: Write configuration files
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+    mode: 0777
+  with_items:
+    - { dest: "/etc/resolv.conf", src: "resolv.conf.j2" }
+    - { dest: "/etc/bind/named.conf.local", src: "named.conf.local.j2" }
+    - { dest: "/etc/default/isc-dhcp-server", src: "isc-dhcp-server.j2" }
+    - { dest: "/etc/network/interfaces", src: "interfaces.j2" }
+    - { dest: "/etc/dhcp/dhcpd.conf", src: "dhcpd.conf.j2" }
+    - { dest: "/etc/dhcpcd.conf", src: "dhcpcd.conf.j2" }
+
+- name: Write forward zone files
+  ansible.builtin.copy:
+    dest: /etc/bind/zone.{{ item.name }}
+    src: zone.{{ item.name }}
+    mode: "0644"
+  loop: "{{ dns.zone_names.forward }}"
+
+- name: Write reverse zone files
+  ansible.builtin.copy:
+    dest: /etc/bind/zone.rev.{{ item.name }}
+    src: zone.rev.{{ item.name }}
+    mode: "0644"
+  loop: "{{ dns.zone_names.reverse }}"
+
+- name: Restart Bind9 DNS service
+  command: systemctl restart bind9
+
+- name: Restart isc-dhcp-server service
+  command: systemctl restart isc-dhcp-server

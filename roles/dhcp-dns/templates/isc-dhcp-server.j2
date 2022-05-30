@@ -1,0 +1,11 @@
+DHCPDv4_CONF=/etc/dhcp/dhcpd.conf
+#DHCPDv6_CONF=/etc/dhcp/dhcpd6.conf
+
+DHCPDv4_PID=/var/run/dhcpd.pid
+#DHCPDv6_PID=/var/run/dhcpd6.pid
+
+# Additional options to start dhcpd with.
+#OPTIONS=""
+
+INTERFACESv4="{{ dhcp_config.network_interface }}"
+INTERFACESv6=""

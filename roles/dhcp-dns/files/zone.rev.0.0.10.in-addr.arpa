@@ -1,0 +1,15 @@
+$TTL 1H
+
+@ IN SOA ns1.cluster.shard. pi.cluster.shard (
+        11 ; serial
+        2H ; refresh
+        1H ; retry
+        1W ; expire
+        1D ; minimum
+)
+
+; NS record
+                IN      NS      ns1.cluster.shard.
+
+; PTR record for pi.cluster.shard
+11              IN      PTR     pi.cluster.shard.

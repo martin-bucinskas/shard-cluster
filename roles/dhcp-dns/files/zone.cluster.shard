@@ -1,0 +1,24 @@
+$TTL 1H
+
+cluster.shard. IN SOA ns1.cluster.shard. pi.cluster.shard. (
+        11 ; serial
+        2H ; refresh
+        1H ; retry
+        1W ; expire
+        1D ; minimum
+)
+
+; NS for the DNS server
+                IN      NS      ns1.cluster.shard.
+
+; NS A records
+ns1             IN      A       10.0.0.1
+
+; A record for raspberry pi
+pi              IN      A       10.0.0.1
+
+; A CNAME for rpi.cluster.shard -> pi.cluster.shard
+rpi             IN      CNAME   pi.cluster.shard.
+
+; A record for speedy-boi
+speedy-boi      IN      A       10.0.0.2

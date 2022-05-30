@@ -1,0 +1,33 @@
+cluster_domain_name: cluster.shard
+cluster_dns: 10.0.0.1
+dhcp_subnet_mask: 255.255.255.0
+dhcp_netbios_ns: 10.0.0.1
+
+dns:
+  zone_names:
+    forward:
+      - name: cluster.shard
+    reverse:
+      - name: 0.0.10.in-addr.arpa
+
+dhcp_client:
+  dhcp_ip: 10.0.0.1
+  broadcast_address: 10.0.0.255
+
+dhcp_config:
+  network_interface: eth0
+  default_lease_time: 120
+  max_lease_time: 3600
+
+subnets:
+  - name: default-subnet
+    subnet: 10.0.0.0
+    netmask: 255.255.255.0
+    range: 10.0.0.1 10.0.0.254
+    default_lease_time: 3600
+    max_lease_time: 3600
+
+hosts:
+  - name: speedy-boi
+    mac_address: 2c:f0:5d:73:7b:15
+    fixed_address: 10.0.0.2

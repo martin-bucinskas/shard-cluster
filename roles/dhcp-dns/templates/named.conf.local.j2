@@ -1,0 +1,13 @@
+{% for zone in dns.zone_names.forward %}
+zone "{{ zone.name }}" IN {
+  type master;
+  file "/etc/bind/zone.{{zone.name}}";
+};
+{% endfor %}
+
+{% for zone in dns.zone_names.reverse %}
+zone "{{ zone.name }}" IN {
+  type master;
+  file "/etc/bind/zone.rev.{{zone.name}}";
+};
+{% endfor %}

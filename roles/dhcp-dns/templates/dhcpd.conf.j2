@@ -1,0 +1,34 @@
+option domain-name "{{ cluster_domain_name }}";
+option domain-name-servers {{ cluster_dns }};
+
+option subnet-mask {{ dhcp_subnet_mask }};
+option netbios-name-servers {{ dhcp_netbios_ns }};
+
+default-lease-time {{ dhcp_config.default_lease_time }};
+max-lease-time {{ dhcp_config.max_lease_time }};
+
+authoritative;
+
+shared-network {{ dhcp_config.network_interface }} {
+  {% for subnet in subnets %}
+    subnet {{ subnet.subnet }} netmask {{ subnet.netmask }} {
+      authoritative;
+      range {{ subnet.range }};
+
+      default-lease-time {{ subnet.default_lease_time }};
+      max-lease-time {{ subnet.max_lease_time }};
+
+      option subnet-mask {{ subnet.netmask }};
+      option routers {{ subnet.subnet }};
+      option domain-name-servers {{ cluster_dns }};
+      option domain-name "{{ cluster_domain_name }}";
+    }
+  {% endfor %}
+}
+
+{% for host in hosts %}
+host {{ host.name }} {
+  hardware ethernet {{ host.mac_address }};
+  fixed-address {{ host.fixed_address }};
+}
+{% endfor %}
