@@ -2,7 +2,7 @@
 
 ## Hardware
 
-Shard cluster ([cluster.shard](cluster.shard)) is a home built multi-purpose
+Shard cluster ([cluster.shard](https://cluster.shard)) is a home built multi-purpose
 cluster used for learning, testing and playing about with networks,
 computing and other interesting technology.
 
