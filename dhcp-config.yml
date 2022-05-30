@@ -1,8 +1,0 @@
----
-
-- name: Install and configure DHCP and DNS server
-  hosts: dhcp_server
-  vars_files:
-    - ./group_vars/dhcp-dns.yml
-  roles:
-    - { role: dhcp-dns, become: true }

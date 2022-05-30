@@ -6,7 +6,7 @@ zone "{{ zone.name }}" IN {
 {% endfor %}
 
 {% for zone in dns.zone_names.reverse %}
-zone "{{ zone.name }}" IN {
+zone "{{ zone.name }}" {
   type master;
   file "/etc/bind/zone.rev.{{zone.name}}";
 };

@@ -1,0 +1,18 @@
+---
+
+- name: Install NTP package
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time={{ aptcachetime }}
+  with_items:
+    - ntp
+    - ntpdate
+
+- name: Write configuration files
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src }}"
+    mode: 0644
+  with_items:
+    - { dest: "/etc/ntp.conf", src: "ntp.conf.j2" }
+
+- name: Restart NTP service
+  command: systemctl restart ntp

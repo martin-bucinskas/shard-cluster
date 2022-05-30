@@ -35,7 +35,7 @@ a very flexible, full-featured DNS system.
 To perform a dry-run,
 
 ```bash
-$ ansible-playbook dhcp-config.yml -i hosts -u martin --ask-pass --become --check
+$ ansible-playbook pave-shard-main.yml -i hosts -u martin --ask-pass --become --check
 ```
 
 ### Apply configuration
@@ -43,5 +43,5 @@ $ ansible-playbook dhcp-config.yml -i hosts -u martin --ask-pass --become --chec
 To apply the configuration,
 
 ```bash
-ansible-playbook dhcp-config.yml -i hosts -u martin --ask-pass --become
+ansible-playbook pave-shard-main.yml -i hosts -u martin --ask-pass --become
 ```

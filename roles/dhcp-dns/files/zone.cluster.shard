@@ -22,3 +22,6 @@ rpi             IN      CNAME   pi.cluster.shard.
 
 ; A record for speedy-boi
 speedy-boi      IN      A       10.0.0.2
+
+; A record for NTP server
+ntp             IN      A       10.0.0.1
