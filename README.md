@@ -43,5 +43,5 @@ $ ansible-playbook dhcp-config.yml -i hosts -u martin --ask-pass --become --chec
 To apply the configuration,
 
 ```bash
-ansible-playbook dhcp-config.yml -i hosts -u martin --ask-pass --become
+$ ansible-playbook dhcp-config.yml -i hosts -u martin --ask-pass --become
 ```
