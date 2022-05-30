@@ -7,11 +7,12 @@ cluster used for learning, testing and playing about with networks,
 computing and other interesting technology.
 
 It consists of the following:
-    - 1x [Raspberry PI 3 B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) 1.4GHz
-        - 128GB micro SD with raspbian image
-    - 1x TP-Link Gigabit Switch
-    - 3x [Odroid C4](https://www.odroid.co.uk/index.php?route=product/product&product_id=1027) 4GB 2GHz 64-bit quad-core
-        - 3x 32GB eMMC modules with linux images
+    
+- 1x [Raspberry PI 3 B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) 1.4GHz
+  - 128GB micro SD with raspbian image
+- 1x TP-Link Gigabit Switch
+- 3x [Odroid C4](https://www.odroid.co.uk/index.php?route=product/product&product_id=1027) 4GB 2GHz 64-bit quad-core
+  - 3x 32GB eMMC modules with linux images
 
 ## Software
 
