@@ -31,3 +31,6 @@ hosts:
   - name: speedy-boi
     mac_address: 2c:f0:5d:73:7b:15
     fixed_address: 10.0.0.2
+  - name: switch
+    mac_address: 08:5a:11:31:73:92
+    fixed_address: 10.0.0.3

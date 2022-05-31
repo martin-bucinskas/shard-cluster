@@ -25,3 +25,5 @@ speedy-boi      IN      A       10.0.0.2
 
 ; A record for NTP server
 ntp             IN      A       10.0.0.1
+
+switch          IN      A       10.0.0.3

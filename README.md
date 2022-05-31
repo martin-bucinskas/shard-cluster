@@ -7,12 +7,12 @@ cluster used for learning, testing and playing about with networks,
 computing and other interesting technology.
 
 It consists of the following:
-    
+
+- 1x [D-Link DGS-1100-05V2 Gigabit Ethernet Switch](https://us.dlink.com/en/products/dgs-1100-05v2-5-port-gigabit-smart-managed-switch)
 - 1x [Raspberry PI 3 B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) 1.4GHz
   - 128GB micro SD with raspbian image
-- 1x TP-Link Gigabit Switch
 - 3x [Odroid C4](https://www.odroid.co.uk/index.php?route=product/product&product_id=1027) 4GB 2GHz 64-bit quad-core
-  - 3x 32GB eMMC modules with linux images
+  - 3x [32GB eMMC modules with Ubuntu 20.04 images](https://www.odroid.co.uk/odroid-accessories/odroid-os/32gb-emmc-c2-linux)
 
 ## Software
 
